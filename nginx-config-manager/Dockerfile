@@ -7,6 +7,7 @@ RUN apt-get update \
 
 COPY docker-gen /usr/local/bin/docker-gen
 COPY generate-config /usr/local/bin/generate-config
+COPY generate-certificate /usr/local/bin/generate-certificate
 
 COPY nginx.tpl /nginx.tpl
 COPY supervisord.conf /supervisord.conf

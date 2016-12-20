@@ -1,0 +1,10 @@
+#!/bin/sh
+
+WEBROOT=/tmp/letsencrypt
+CERTPATH=/etc/nginx/certs
+
+letsencrypt certonly \
+ --agree-tos \
+ --webroot -w $WEBROOT \
+ --cert-path $CERTPATH \
+ "$@"

@@ -86,7 +86,7 @@ server {
   {{/* Respond to letsencrypt challenges */}}
   location /.well-known/acme-challenge {
     default_type  "text/plain";
-    root          /tmp/letsencrypt-auto;
+    root          /tmp/letsencrypt;
   }
 
   location / {
