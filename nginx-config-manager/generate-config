@@ -1,0 +1,18 @@
+#!/bin/sh
+
+SOCKET=unix:///tmp/docker.sock
+TEMPLATE=/nginx.tpl
+OUTPUT=/etc/nginx/conf.d/docker.conf
+WATCH=
+
+while getopts "t:o:wh" opt; do
+  case $opt in
+    t) TEMPLATE=$OPTARG ;;
+    o) OUTPUT=$OPTARG ;;
+    w) WATCH=-watch ;;
+    h) HELP ;;
+    \?) exit 1 ;;
+  esac
+done
+
+docker-gen $WATCH -endpoint $SOCKET -include-stopped $TEMPLATE $OUTPUT
